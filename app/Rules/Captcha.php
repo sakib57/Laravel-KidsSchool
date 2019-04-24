@@ -16,17 +16,9 @@ class Captcha implements Rule
     {
         //
     }
-
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
     public function passes($attribute, $value)
     {
-        $recaptcha= new Recaptcha(env('CAPTCHA_SECREET'));
+        $recaptcha= new Recaptcha(env('CAPTCHA_SECREET_K'));
         $response=$recaptcha->verify($value,$_SERVER['REMOTE_ADDR']);
         return $response->isSuccess();
     }
@@ -38,6 +30,6 @@ class Captcha implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'Recaptcha Must be Varified';
     }
 }

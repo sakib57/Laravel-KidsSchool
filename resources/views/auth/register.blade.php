@@ -1,11 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="container" style="width: 60%; ">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+        <div class="col-md-8" >
+            <div class="card"  style="margin-top: 120px; background-color: #91d89b;">
+
+                <div class="container" style="width: 50%; margin-bottom:5%; margin-top: 10%; margin-left: 33%">
+                    <img width="150" height="150" src="../frontend/img/img/man.png">
+                </div>
+
+                <br>
+                <p class="h3 text-center mb-4">{{ __('Sign Up') }}</p>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -64,13 +72,17 @@
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Captcha') }}</label>
                             
-                            <div class="g-recaptcha col-md-6" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                            <div class="col-md-6">
+
+                            
+                            <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY_K')}}"></div>
 
                             @if($errors->has('g-recaptcha-response'))
                                 <span class="invalid-feedback" style="display: block;">
                                     <strong>{{$errors->first('g-recaptcha-response')}}</strong>
                                 </span>
                             @endif
+                            </div>
                             
                         </div>
                         <!--Captcha End-->
@@ -80,7 +92,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Sign Up') }}
                                 </button>
                             </div>
                         </div>

@@ -1,11 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
+<div class="container" style="width: 60%; ">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card"  style="margin-top: 120px; background-color: #91d89b">
+                <div class="container" style="width: 50%; margin-bottom:5%; margin-top: 10%; margin-left: 33%">
+                    <img width="150" height="150" src="../frontend/img/img/man.png">
+                </div>
+
+                <br>
+                <p class="h3 text-center mb-4">{{ __('Login') }}</p>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

@@ -67,6 +67,7 @@
                           <td>
                               <button class="btn btn-default" style="color: green;font-size: 18px"><i class="fa fa-edit"></i></button>
                               @if($data->role_name == 'Super Admin')
+                              
                               @else
                                 <button  class="btn btn-default" style="color: red;font-size: 18px"><i class="fa fa-trash"></i></button>
                               @endif
@@ -119,12 +120,18 @@
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Role</label>
                   <div class="col-sm-10">
+
+
                     <select class="form-control" name="role_id">
+
                     <option value="">--- Select Role ---</option>
+                    
                     @foreach($all_role as $value)
                     <option class="<?php if($value->role_name == 'Super Admin') echo 'hide'?>" value="{{$value->id}}">{{$value->role_name}}</option>
                     @endforeach
                   </select>
+
+
                   </div>
                 </div>
 
